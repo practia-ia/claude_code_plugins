@@ -67,6 +67,17 @@ Actualiza un Pull Request existente en GitHub.
 
 ### Utilidades
 
+#### `/adr`
+
+Crea un Architecture Decision Record (ADR) en `/docs/adrs`.
+
+**Funcionalidad:**
+
+- Crea el directorio `/docs/adrs` si no existe
+- Numera automáticamente el ADR (0001, 0002, etc.)
+- Solicita contexto, decisión y consecuencias
+- Genera el archivo con template estándar
+
 #### `/document`
 
 Documenta la sesión actual de Claude Code.
@@ -117,6 +128,7 @@ useful-commands/
 │   └── plugin.json          # Metadata del plugin
 ├── .mcp.json                 # Configuración de MCP servers
 ├── commands/
+│   ├── adr.md               # Comando /adr
 │   ├── create-pr.md         # Comando /create-pr (Azure DevOps)
 │   ├── create-pr-gh.md      # Comando /create-pr-gh (GitHub)
 │   ├── document.md          # Comando /document

@@ -1,30 +1,62 @@
-# Claude Code Plugins - Conversation Logger
+# Claude Code Plugins
 
-Plugin para Claude Code que registra automáticamente las conversaciones en archivos de log locales con rotación automática.
+Colección de plugins para Claude Code.
 
-## Descripción
+## Plugins Disponibles
 
-Este plugin captura y guarda:
-- **Mensajes del usuario**: Cada prompt enviado a Claude
-- **Uso de herramientas**: Registro de las herramientas utilizadas (Read, Write, Edit, Bash, Grep, etc.)
-- **Respuestas del asistente**: El texto de respuesta generado por Claude
+### conversation-logger
 
-Los logs se guardan en `.claude/logs/` dentro del proyecto con rotación automática cuando alcanzan 512 KB.
+Plugin que registra automáticamente las conversaciones en archivos de log locales con rotación automática.
 
-## Requisitos
+**Características:**
+- Captura mensajes del usuario, uso de herramientas y respuestas del asistente
+- Logs en `.claude/logs/` con rotación automática (512 KB)
+- Solo Windows (PowerShell 5.1+)
 
-- **Claude Code** versión 1.0.40 o superior (soporte de plugins)
-- **Windows** con PowerShell 5.1 o superior
+```bash
+/plugin enable conversation-logger@practia-ia
+```
+
+### useful-commands
+
+Plugin con comandos útiles para gestión de PRs y documentación de sesiones.
+
+**Comandos incluidos:**
+
+| Comando | Descripción |
+|---------|-------------|
+| `/create-pr` | Crea un PR en Azure DevOps |
+| `/update-pr` | Actualiza un PR existente en Azure DevOps |
+| `/create-pr-gh` | Crea un PR en GitHub |
+| `/update-pr-gh` | Actualiza un PR existente en GitHub |
+| `/adr` | Crea un Architecture Decision Record |
+| `/document` | Documenta la sesión actual |
+
+**MCP Servers incluidos:**
+- [Microsoft Azure DevOps MCP](https://github.com/microsoft/azure-devops-mcp)
+- [GitHub MCP Server](https://github.com/github/github-mcp-server)
+
+```bash
+/plugin enable useful-commands@practia-ia
+```
 
 ## Instalación
 
 ```bash
-# Registrar el marketplace (instala el plugin automáticamente)
+# Registrar el marketplace
 /plugin marketplace add practia-ia/claude_code_plugins
 
-# Habilitar el plugin
+# Habilitar los plugins que desees
 /plugin enable conversation-logger@practia-ia
+/plugin enable useful-commands@practia-ia
 ```
+
+## Requisitos
+
+- **Claude Code** versión 1.0.40+ (soporte de plugins)
+- **Node.js 20+** (para Azure DevOps MCP)
+- **Docker** (para GitHub MCP)
+- **Windows con PowerShell 5.1+** (solo para conversation-logger)
 
 ## Licencia
 
